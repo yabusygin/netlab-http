@@ -1,0 +1,12 @@
+name: netlab-http-service
+services:
+  http:
+    build: ./build/
+    volumes:
+      - type: bind
+        source: ./htpasswd
+        target: /etc/nginx/htpasswd
+    ports:
+      - protocol: tcp
+        target: 80
+        published: 80
